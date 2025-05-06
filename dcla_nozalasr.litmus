@@ -1,0 +1,26 @@
+RISCV dcla-nozalasr
+{
+x=0;
+y=0;
+z=1;
+0:s1=x; 0:sp=y; 0:t1=z; 0:s3=0; 0:a1=0;
+1:s1=x; 1:sp=y; 1:t1=z; 1:t3=2
+}
+P0                           | P1                  ;
+start:                       |;
+lw	a0, 0(s1)                |;
+bne	a0, zero, start          |;
+amoswap.w.aq	a0, s0, (s1) |;
+bne	a0, zero, start          |;
+lw	a0, 0(t1)                |;
+fence	rw, w                |;
+sw	zero, 0(s1)              |;
+lw	a1, 0(sp)                |;
+add	s3, s3, a0               |;
+addi	a1, a1, 1            |;
+sw	a1, 0(sp)                |;
+                             |sw t3, 0(sp);
+                             |fence rw, rw;
+                             |sw t3, 0(t1);
+|;
+exists (0:a0=2 /\ y=2)

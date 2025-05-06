@@ -1,7 +1,5 @@
-
-main:
+.word 0x0
 _start:
-_main:
 la t0, handler
 csrw mtvec, t0
 

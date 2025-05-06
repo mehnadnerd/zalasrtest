@@ -1,0 +1,57 @@
+digraph G {
+
+
+/* legend */
+label="Test dcla, Generic(Risc V partial order model)";
+
+
+/* init events */
+// eiid8 [label="i: W[z]=1\lInit", shape="box", color="blue"];
+// eiid9 [label="j: W[y]=0\lInit", shape="box", color="blue"];
+// eiid10 [label="k: W[x]=0\lInit", shape="box", color="blue"];
+
+/* the unlocked events */
+subgraph cluster_proc0 { rank=sink; label = "Thread 0"; color=magenta; shape=box;
+eiid0 [label="a: R[x]=0\lproc:P0 poi:0\llw x10,0(x9)", shape="box", color="blue"];
+eiid1 [label="b: RMW(Acq*)[x]w(0>0)\lproc:P0 poi:42\lamoswap.w.aq x10,x8,(x9)", shape="box", color="blue"];
+eiid2 [label="c: R[z]=2\lproc:P0 poi:84\llw x10,0(x6)", shape="box", color="blue"];
+eiid3 [label="d: W[x]=0\lproc:P0 poi:86\lsw x0,0(x9)", shape="box", color="blue"];
+eiid4 [label="e: R[y]=0\lproc:P0 poi:87\llw x11,0(x2)", shape="box", color="blue"];
+eiid5 [label="f: W[y]=1\lproc:P0 poi:91\lsw x11,0(x2)", shape="box", color="blue"];
+}
+subgraph cluster_proc1 { rank=sink; label = "Thread 1"; color=magenta; shape=box;
+eiid6 [label="g: W[y]=2\lproc:P1 poi:0\lsw x28,0(x2)", shape="box", color="blue"];
+eiid7 [label="h: W[z]=2\lproc:P1 poi:2\lsw x28,0(x6)", shape="box", color="blue"];
+}
+
+/* the intra_causality_data edges */
+
+
+/* the intra_causality_control edges */
+
+/* the poi edges */
+/* the rfmap edges */
+//eiid10 -> eiid0 [label="rf", color="red", fontcolor="red"];
+//eiid10 -> eiid1 [label="rf", color="red", fontcolor="red"];
+eiid7 -> eiid2 [label="rf", color="red", fontcolor="red"];
+//eiid9 -> eiid4 [label="rf", color="red", fontcolor="red"];
+
+
+/* The viewed-before edges */
+eiid0 -> eiid1 [label="ppo", color="indigo", fontcolor="indigo"];
+eiid1 -> eiid2 [label="ppo", color="indigo", fontcolor="indigo"];
+eiid1 -> eiid4 [label="ppo", color="indigo", fontcolor="indigo"];
+eiid2 -> eiid3 [label="ppo", color="indigo", fontcolor="indigo"];
+eiid2 -> eiid5 [label="ppo", color="indigo", fontcolor="indigo"];
+eiid4 -> eiid5 [label="ppo", color="indigo", fontcolor="indigo"];
+eiid6 -> eiid7 [label="ppo", color="indigo", fontcolor="indigo"];
+eiid0 -> eiid1 [label="fr", color="#ffa040", fontcolor="#ffa040"];
+eiid1 -> eiid3 [label="fr", color="#ffa040", fontcolor="#ffa040"];
+eiid4 -> eiid5 [label="fr", color="#ffa040", fontcolor="#ffa040"];
+eiid4 -> eiid6 [label="fr", color="#ffa040", fontcolor="#ffa040"];
+eiid1 -> eiid3 [label="co", color="blue", fontcolor="blue"];
+eiid5 -> eiid6 [label="co", color="blue", fontcolor="blue"];
+//eiid8 -> eiid7 [label="co", color="blue", fontcolor="blue"];
+//eiid9 -> eiid5 [label="co", color="blue", fontcolor="blue"];
+//eiid10 -> eiid1 [label="co", color="blue", fontcolor="blue"];
+}

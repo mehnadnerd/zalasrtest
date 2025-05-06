@@ -53,14 +53,8 @@ j endloop
 .global x_val
 _x_val:
 x_val:
-li t0, 100
-x_val_loop:
-div a0, t0, a0
-xor a0, a0, a0
-addi a0, a0, -1
-add t0, t0, a0
-bnez t0, x_val_loop
-addi a0, t0, 1
+la t1, lasrdata
+lw a0, 0(t1)
 ret
 
 
@@ -105,3 +99,9 @@ scratchstart:
 scratchmid:
 .zero 4096
 scratchend:
+
+.align 4
+.global array
+_array:
+array:
+.zero 250*4

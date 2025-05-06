@@ -1,0 +1,118 @@
+dcla1
+
+800000e0: 4088         	lw	a0, 0x0(s1)
+800000e2: fd7d         	bnez	a0, 0x800000e0 <.Lpcrel_hi0+0xe>
+800000e4: 0c84a52f     	amoswap.w.aq	a0, s0, (s1)
+800000e8: fd65         	bnez	a0, 0x800000e0 <.Lpcrel_hi0+0xe>
+800000ea: fa7ff0ef     	jal	0x80000090 <x_val>
+800000ee: 0310000f     	fence	rw, w
+800000f2: 0004a023     	sw	zero, 0x0(s1)
+800000f6: 6582         	ld	a1, 0x0(sp)
+800000f8: 99aa         	add	s3, s3, a0
+800000fa: 95ce         	add	a1, a1, s3
+800000fc: 0a05         	addi	s4, s4, 0x1
+800000fe: e02e         	sd	a1, 0x0(sp)
+80000100: ff5a10e3     	bne	s4, s5, 0x800000e0 <.Lpcrel_hi0+0xe>
+
+dcla2
+
+800000e0: 4088         	lw	a0, 0x0(s1)
+800000e2: fd7d         	bnez	a0, 0x800000e0 <.Lpcrel_hi0+0xe>
+800000e4: 0c84a52f     	amoswap.w.aq	a0, s0, (s1)
+800000e8: fd65         	bnez	a0, 0x800000e0 <.Lpcrel_hi0+0xe>
+800000ea: fa7ff0ef     	jal	0x80000090 <x_val>
+800000ee: 3a04a02f     	sw.rl	zero, (s1)
+800000f2: 6582         	ld	a1, 0x0(sp)
+800000f4: 99aa         	add	s3, s3, a0
+800000f6: 95ce         	add	a1, a1, s3
+800000f8: 0a05         	addi	s4, s4, 0x1
+800000fa: e02e         	sd	a1, 0x0(sp)
+800000fc: ff5a12e3     	bne	s4, s5, 0x800000e0 <.Lpcrel_hi0+0xe>
+
+
+x_val
+
+0000000080000090 <x_val>:
+80000090: 00000317     	auipc	t1, 0x0
+80000094: 09030313     	addi	t1, t1, 0x90
+80000098: 00032503     	lw	a0, 0x0(t1)
+8000009c: 8082         	ret
+
+
+
+extern int array[250];
+extern int x_val();
+static int get_x() {
+  if(atomic_load(&x_init)) {
+    return x;
+  }
+  lock(&x_mutex);
+  if (!atomic_load(&x_init)) {
+    x = x_val();
+    atomic_store(&x_init, true);
+  }
+  unlock(&x_mutex);
+  return x;
+}
+
+// Increase to a billion to get a measurable execution time on real hardware
+#define NITERS (100)
+
+static int loop () {
+  int result = 0;
+  int array_sum = 0;
+  // volatile int spilledlocal = 0; // this is marked as volatile, in real code
+  //                                // this would correspond to a spilled local
+  for (int i = 0; i < NITERS; ++i) {
+    result += get_x();
+    array_sum += array[i % NITERS];
+    // spilledlocal = spilledlocal + 1;
+  }
+  return result - NITERS + array_sum;
+}
+
+void *thread_func(void *arg) {
+  return (void *)((long)loop() + (long)(intptr_t)arg);
+}
+
+
+dclhbsc1 (no zalasr)
+core   0: 0x00000000800000f2 (0x4e2b2503) lw      a0, 1250(s6)
+core   0: 0x00000000800000f6 (0x00241593) slli    a1, s0, 2
+core   0: 0x00000000800000fa (0x000095de) c.add   a1, s7
+core   0: 0x00000000800000fc (0x0000418c) c.lw    a1, 0(a1)
+core   0: 0x00000000800000fe (0x00009a2a) c.add   s4, a0
+core   0: 0x0000000080000100 (0x00000405) c.addi  s0, 1
+core   0: 0x0000000080000102 (0x000099ae) c.add   s3, a1
+core   0: 0x0000000080000104 (0x05840663) beq     s0, s8, pc + 76
+core   0: 0x0000000080000108 (0x0330000f) fence   rw,rw
+core   0: 0x000000008000010c (0x4e2a8503) lb      a0, 1250(s5)
+core   0: 0x0000000080000110 (0x00008905) c.andi  a0, 1
+core   0: 0x0000000080000112 (0x0230000f) fence   r,rw
+core   0: 0x0000000080000116 (0x0000fd71) c.bnez  a0, pc - 36
+13 insn, 36 bytes
+
+dclhbsc2 (zalasr)
+core   1: 0x00000000800000f2 (0x4beb2503) lw      a0, 1214(s6)
+core   1: 0x00000000800000f6 (0x00241593) slli    a1, s0, 2
+core   1: 0x00000000800000fa (0x000095de) c.add   a1, s7
+core   1: 0x00000000800000fc (0x0000418c) c.lw    a1, 0(a1)
+core   1: 0x00000000800000fe (0x00009a2a) c.add   s4, a0
+core   1: 0x0000000080000100 (0x00000405) c.addi  s0, 1
+core   1: 0x0000000080000102 (0x000099ae) c.add   s3, a1
+core   1: 0x0000000080000104 (0x03840a63) beq     s0, s8, pc + 52
+core   1: 0x0000000080000108 (0x340a852f) lb.aq   a0, (s5)
+core   1: 0x000000008000010c (0x00008905) c.andi  a0, 1
+core   1: 0x000000008000010e (0x0000f175) c.bnez  a0, pc - 28
+11 insn, 28 bytes
+
+
+a1-relative load is the array load
+s6 is address of x
+s5 is address of x_init
+s3 is acccumator for array_sum
+s0 is i
+s4 is accumulator for result
+the beq is the main loop branch
+the c.bnez is checking x_init is true
+

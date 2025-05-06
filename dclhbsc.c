@@ -7,20 +7,28 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+atomic_bool x_init;
 my_mutex x_mutex = MUTEX_INITIALIZER;
+static int x;
+
 // Some slow function. returns 1
 // Implemented in asm
 // volatile int zalasrdata = 1;
 // int x_val() {
 //   return zalasrdata;
 // }
+
+extern int array[250];
 extern int x_val();
 static int get_x() {
-  int x;
-  l:
-  if (!peek(&x_mutex)) {goto l;}
-  if (!try_lock(&x_mutex)) {goto l;}
-  x = x_val();
+  if(atomic_load(&x_init)) {
+    return x;
+  }
+  lock(&x_mutex);
+  if (!atomic_load(&x_init)) {
+    x = x_val();
+    atomic_store(&x_init, true);
+  }
   unlock(&x_mutex);
   return x;
 }
@@ -30,13 +38,15 @@ static int get_x() {
 
 static int loop () {
   int result = 0;
-  volatile int spilledlocal = 0; // this is marked as volatile, in real code
-                                 // this would correspond to a spilled local
+  int array_sum = 0;
+  // volatile int spilledlocal = 0; // this is marked as volatile, in real code
+  //                                // this would correspond to a spilled local
   for (int i = 0; i < NITERS; ++i) {
     result += get_x();
-    spilledlocal = spilledlocal + 1;
+    array_sum += array[i % NITERS];
+    // spilledlocal = spilledlocal + 1;
   }
-  return result - NITERS;
+  return result - NITERS + array_sum;
 }
 
 void *thread_func(void *arg) {
