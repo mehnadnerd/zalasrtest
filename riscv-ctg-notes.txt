@@ -1,0 +1,126 @@
+riscv-ctg notes
+
+Fixing locals issue in riscv-ctg (not portable python)
+
+diff --git a/riscv-ctg/riscv_ctg/generator.py b/riscv-ctg/riscv_ctg/generator.py
+index 19d66a39..ab7eeb68 100644
+--- a/riscv-ctg/riscv_ctg/generator.py
++++ b/riscv-ctg/riscv_ctg/generator.py
+@@ -206,9 +206,10 @@ def get_default_registers(ops, datasets):
+     else:
+         cond = 'True'
+     def unique_constraint(*args):
++        locals2 = locals()
+         for var,val in zip(ops,args):
+-            locals()[var] = val
+-        return eval(cond)
++            locals2[var] = val
++        return eval(cond, locals=locals2)
+     problem.addConstraint(unique_constraint,tuple(ops))
+     solution = None
+     count = 0
+@@ -367,9 +368,10 @@ class Generator():
+                 cond = op_comb.pop()
+                 cond_str += cond+", "
+                 def comb_constraint(*args):
++                    locals2 = locals()
+                     for var,val in zip(self.op_vars,args):
+-                        locals()[var] = val
+-                    return eval(cond)
++                        locals2[var] = val
++                    return eval(cond, locals=locals2)
+                 problem.addConstraint(comb_constraint,tuple(self.op_vars))
+             elif not nodiff:
+                 problem.addConstraint(AllDifferentConstraint())
+@@ -411,9 +413,10 @@ class Generator():
+                 op_conds[key].discard(solution[key])
+ 
+             def eval_func(cond):
++                locals2 = locals()
+                 for var,val in zip(self.op_vars,op_tuple):
+-                    locals()[var] = val
+-                return eval(cond)
++                    locals2[var] = val
++                return eval(cond, locals=locals2)
+             sat_set = OrderedSet(filter(eval_func,op_comb))
+             cond_str += ", ".join([var+"=="+solution[var] for var in cond_vars]+list(sat_set))
+             op_tuple.append(cond_str)
+@@ -498,9 +501,10 @@ class Generator():
+                     problem.addVariable(var, dataset)
+ 
+                 def condition(*argv):
++                    locals2 = locals()
+                     for var,val in zip(self.val_vars,argv):
+-                        locals()[var]=val
+-                    return eval(req_val_comb)
++                        locals2[var]=val
++                    return eval(req_val_comb, locals=locals2)
+ 
+                 problem.addConstraint(condition,tuple(self.val_vars))
+                 # if boundconstraint:
+@@ -518,9 +522,10 @@ class Generator():
+                     val_tuple.append(solution[key])
+ 
+                 def eval_func(cond):
++                    locals2 = locals()
+                     for var,val in zip(self.val_vars,val_tuple):
+-                        locals()[var] = val
+-                    return eval(cond)
++                        locals2[var] = val
++                    return eval(cond, locals=locals2)
+                 sat_set=OrderedSet(filter(lambda x: eval_func(conds[x]),inds))
+                 inds = inds - sat_set
+                 val_tuple.append(req_val_comb+', '+', '.join([conds[i] for i in sat_set]))
+@@ -1272,9 +1277,10 @@ class Generator():
+             normalise = (lambda x,y: x) if 'rd' not in self.op_vars else (lambda x,y: 0 if y['rd']=='x0' else x)
+         if self.operation:
+             for i in range(len(instr_dict)):
++                locals2 = locals()
+                 for var in self.val_vars:
+-                    locals()[var]=toint(instr_dict[i][var])
+-                correctval = eval(self.operation)
++                    locals2[var]=toint(instr_dict[i][var])
++                correctval = eval(self.operation, locals=locals2)
+                 instr_dict[i]['correctval'] = str(normalise(correctval,instr_dict[i]))
+         else:
+             for i in range(len(instr_dict)):
+
+Issues when I try to run riscof....
+riscof doesn't work...
+https://github.com/riscv-software-src/riscof/issues/122
+https://github.com/riscv-software-src/riscof/pull/123/files
+
+After applying that fix
+
+
+(venv) brs@~/Documents/research/riscv-arch-test/riscof-plugins/rv32 % riscof run --config config.ini --suite ../../riscv-ctg/out --env .                   
+    INFO | ****** RISCOF: RISC-V Architectural Test Framework 1.25.3 *******
+    INFO | using riscv_isac version : 0.18.0
+    INFO | using riscv_config version : 3.18.3
+    INFO | Reading configuration from: /Users/brs/Documents/research/riscv-arch-test/riscof-plugins/rv32/config.ini
+    INFO | Preparing Models
+    INFO | Input-ISA file
+    INFO | ISACheck: Loading input file: /Users/brs/Documents/research/riscv-arch-test/riscof-plugins/rv32/spike_simple/spike_simple_isa.yaml
+    INFO | ISACheck: Load Schema /Users/brs/Documents/research/venv/lib/python3.13/site-packages/riscv_config/schemas/schema_isa.yaml
+    INFO | ISACheck: Processing Hart:0
+    INFO | ISACheck: Initiating Validation for Hart:0
+   ERROR | ISACheck: Error in /Users/brs/Documents/research/riscv-arch-test/riscof-plugins/rv32/spike_simple/spike_simple_isa.yaml.
+   ERROR |  PMP:
+   ERROR |   - unknown field
+
+
+After commenting out that check...
+It requires GCC toolchain
+
+At this point I bypassed it and copied files into ctgtests/ in here
+
+Copied setup code from riscv-arch-test/riscof-plugins
+
+Needed to define
+-DXLEN=32 \
+-DTEST_CASE_1 \
+(I think this is properly handled by the scripts if you use them)
+
+signature granularity is 8 on sail??
+Needed to change memory size (never bothered for spike), set to 14 on SAIL because the default made it hang
+

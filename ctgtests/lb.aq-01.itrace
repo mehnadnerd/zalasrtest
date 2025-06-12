@@ -1,0 +1,700 @@
+core   0: 0x00001000 (0x00000297) auipc   t0, 0x0
+core   0: 0x00001004 (0x02028593) addi    a1, t0, 32
+core   0: 0x00001008 (0xf1402573) csrr    a0, mhartid
+core   0: 0x0000100c (0x0182a283) lw      t0, 24(t0)
+core   0: 0x00001010 (0x00028067) jr      t0
+core   0: 0x80000000 (0x7d5c0837) lui     a6, 0x7d5c0
+core   0: 0x80000004 (0xddb80813) addi    a6, a6, -549
+core   0: 0x80000008 (0x00785893) srli    a7, a6, 7
+core   0: 0x8000000c (0x01985793) srli    a5, a6, 25
+core   0: 0x80000010 (0x00f8e8b3) or      a7, a7, a5
+core   0: 0x80000014 (0x0078d913) srli    s2, a7, 7
+core   0: 0x80000018 (0x0198d793) srli    a5, a7, 25
+core   0: 0x8000001c (0x00f96933) or      s2, s2, a5
+core   0: 0x80000020 (0x00795993) srli    s3, s2, 7
+core   0: 0x80000024 (0x01995793) srli    a5, s2, 25
+core   0: 0x80000028 (0x00f9e9b3) or      s3, s3, a5
+core   0: 0x8000002c (0x0079da13) srli    s4, s3, 7
+core   0: 0x80000030 (0x0199d793) srli    a5, s3, 25
+core   0: 0x80000034 (0x00fa6a33) or      s4, s4, a5
+core   0: 0x80000038 (0x007a5a93) srli    s5, s4, 7
+core   0: 0x8000003c (0x019a5793) srli    a5, s4, 25
+core   0: 0x80000040 (0x00faeab3) or      s5, s5, a5
+core   0: 0x80000044 (0x007adb13) srli    s6, s5, 7
+core   0: 0x80000048 (0x019ad793) srli    a5, s5, 25
+core   0: 0x8000004c (0x00fb6b33) or      s6, s6, a5
+core   0: 0x80000050 (0x007b5b93) srli    s7, s6, 7
+core   0: 0x80000054 (0x019b5793) srli    a5, s6, 25
+core   0: 0x80000058 (0x00fbebb3) or      s7, s7, a5
+core   0: 0x8000005c (0x007bdc13) srli    s8, s7, 7
+core   0: 0x80000060 (0x019bd793) srli    a5, s7, 25
+core   0: 0x80000064 (0x00fc6c33) or      s8, s8, a5
+core   0: 0x80000068 (0x007c5c93) srli    s9, s8, 7
+core   0: 0x8000006c (0x019c5793) srli    a5, s8, 25
+core   0: 0x80000070 (0x00fcecb3) or      s9, s9, a5
+core   0: 0x80000074 (0x007cdd13) srli    s10, s9, 7
+core   0: 0x80000078 (0x019cd793) srli    a5, s9, 25
+core   0: 0x8000007c (0x00fd6d33) or      s10, s10, a5
+core   0: 0x80000080 (0x007d5d93) srli    s11, s10, 7
+core   0: 0x80000084 (0x019d5793) srli    a5, s10, 25
+core   0: 0x80000088 (0x00fdedb3) or      s11, s11, a5
+core   0: 0x8000008c (0x007dde13) srli    t3, s11, 7
+core   0: 0x80000090 (0x019dd793) srli    a5, s11, 25
+core   0: 0x80000094 (0x00fe6e33) or      t3, t3, a5
+core   0: 0x80000098 (0x007e5e93) srli    t4, t3, 7
+core   0: 0x8000009c (0x019e5793) srli    a5, t3, 25
+core   0: 0x800000a0 (0x00feeeb3) or      t4, t4, a5
+core   0: 0x800000a4 (0x007edf13) srli    t5, t4, 7
+core   0: 0x800000a8 (0x019ed793) srli    a5, t4, 25
+core   0: 0x800000ac (0x00ff6f33) or      t5, t5, a5
+core   0: 0x800000b0 (0xfeedc0b7) lui     ra, 0xfeedc
+core   0: 0x800000b4 (0xead08093) addi    ra, ra, -339
+core   0: 0x800000b8 (0x0070d113) srli    sp, ra, 7
+core   0: 0x800000bc (0x0190d793) srli    a5, ra, 25
+core   0: 0x800000c0 (0x00f16133) or      sp, sp, a5
+core   0: 0x800000c4 (0x00715193) srli    gp, sp, 7
+core   0: 0x800000c8 (0x01915793) srli    a5, sp, 25
+core   0: 0x800000cc (0x00f1e1b3) or      gp, gp, a5
+core   0: 0x800000d0 (0x0071d213) srli    tp, gp, 7
+core   0: 0x800000d4 (0x0191d793) srli    a5, gp, 25
+core   0: 0x800000d8 (0x00f26233) or      tp, tp, a5
+core   0: 0x800000dc (0x00725293) srli    t0, tp, 7
+core   0: 0x800000e0 (0x01925793) srli    a5, tp, 25
+core   0: 0x800000e4 (0x00f2e2b3) or      t0, t0, a5
+core   0: 0x800000e8 (0x0072d313) srli    t1, t0, 7
+core   0: 0x800000ec (0x0192d793) srli    a5, t0, 25
+core   0: 0x800000f0 (0x00f36333) or      t1, t1, a5
+core   0: 0x800000f4 (0x00735393) srli    t2, t1, 7
+core   0: 0x800000f8 (0x01935793) srli    a5, t1, 25
+core   0: 0x800000fc (0x00f3e3b3) or      t2, t2, a5
+core   0: 0x80000100 (0x0073d413) srli    s0, t2, 7
+core   0: 0x80000104 (0x0193d793) srli    a5, t2, 25
+core   0: 0x80000108 (0x00f46433) or      s0, s0, a5
+core   0: 0x8000010c (0x00745493) srli    s1, s0, 7
+core   0: 0x80000110 (0x01945793) srli    a5, s0, 25
+core   0: 0x80000114 (0x00f4e4b3) or      s1, s1, a5
+core   0: 0x80000118 (0x0074d513) srli    a0, s1, 7
+core   0: 0x8000011c (0x0194d793) srli    a5, s1, 25
+core   0: 0x80000120 (0x00f56533) or      a0, a0, a5
+core   0: 0x80000124 (0x00755593) srli    a1, a0, 7
+core   0: 0x80000128 (0x01955793) srli    a5, a0, 25
+core   0: 0x8000012c (0x00f5e5b3) or      a1, a1, a5
+core   0: 0x80000130 (0x0075d613) srli    a2, a1, 7
+core   0: 0x80000134 (0x0195d793) srli    a5, a1, 25
+core   0: 0x80000138 (0x00f66633) or      a2, a2, a5
+core   0: 0x8000013c (0x00765693) srli    a3, a2, 7
+core   0: 0x80000140 (0x01965793) srli    a5, a2, 25
+core   0: 0x80000144 (0x00f6e6b3) or      a3, a3, a5
+core   0: 0x80000148 (0x00000013) nop
+core   0: 0x8000014c (0x00000013) nop
+core   0: 0x80000150 (0x00000013) nop
+core   0: 0x80000154 (0x00000013) nop
+core   0: 0x80000158 (0x00000013) nop
+core   0: 0x8000015c (0x00000013) nop
+core   0: 0x80000160 (0x00003a17) auipc   s4, 0x3
+core   0: 0x80000164 (0xfa8a0a13) addi    s4, s4, -88
+core   0: 0x80000168 (0x00000013) nop
+core   0: 0x8000016c (0x00000013) nop
+core   0: 0x80000170 (0x00000013) nop
+core   0: 0x80000174 (0x00000013) nop
+core   0: 0x80000178 (0x00000013) nop
+core   0: 0x8000017c (0x00000013) nop
+core   0: 0x80000180 (0x00002217) auipc   tp, 0x2
+core   0: 0x80000184 (0xe8320213) addi    tp, tp, -381
+core   0: 0x80000188 (0x00000013) nop
+core   0: 0x8000018c (0x00000013) nop
+core   0: 0x80000190 (0x00000013) nop
+core   0: 0x80000194 (0x00000013) nop
+core   0: 0x80000198 (0x00000013) nop
+core   0: 0x8000019c (0x00000013) nop
+core   0: 0x800001a0 (0x3402022f) lb.aq   tp, (tp)
+core   0: 0x800001a4 (0x00000001) c.nop
+core   0: 0x800001a6 (0x00000001) c.nop
+core   0: 0x800001a8 (0x004a2023) sw      tp, 0(s4)
+core   0: 0x800001ac (0x00000013) nop
+core   0: 0x800001b0 (0x00000013) nop
+core   0: 0x800001b4 (0x00000013) nop
+core   0: 0x800001b8 (0x00000013) nop
+core   0: 0x800001bc (0x00000013) nop
+core   0: 0x800001c0 (0x00002c17) auipc   s8, 0x2
+core   0: 0x800001c4 (0xe42c0c13) addi    s8, s8, -446
+core   0: 0x800001c8 (0x00000013) nop
+core   0: 0x800001cc (0x00000013) nop
+core   0: 0x800001d0 (0x00000013) nop
+core   0: 0x800001d4 (0x00000013) nop
+core   0: 0x800001d8 (0x00000013) nop
+core   0: 0x800001dc (0x00000013) nop
+core   0: 0x800001e0 (0x340c032f) lb.aq   t1, (s8)
+core   0: 0x800001e4 (0x00000001) c.nop
+core   0: 0x800001e6 (0x00000001) c.nop
+core   0: 0x800001e8 (0x006a2223) sw      t1, 4(s4)
+core   0: 0x800001ec (0x00000013) nop
+core   0: 0x800001f0 (0x00000013) nop
+core   0: 0x800001f4 (0x00000013) nop
+core   0: 0x800001f8 (0x00000013) nop
+core   0: 0x800001fc (0x00000013) nop
+core   0: 0x80000200 (0x00002697) auipc   a3, 0x2
+core   0: 0x80000204 (0xe0168693) addi    a3, a3, -511
+core   0: 0x80000208 (0x00000013) nop
+core   0: 0x8000020c (0x00000013) nop
+core   0: 0x80000210 (0x00000013) nop
+core   0: 0x80000214 (0x00000013) nop
+core   0: 0x80000218 (0x00000013) nop
+core   0: 0x8000021c (0x00000013) nop
+core   0: 0x80000220 (0x340685af) lb.aq   a1, (a3)
+core   0: 0x80000224 (0x00000001) c.nop
+core   0: 0x80000226 (0x00000001) c.nop
+core   0: 0x80000228 (0x00ba2423) sw      a1, 8(s4)
+core   0: 0x8000022c (0x00000013) nop
+core   0: 0x80000230 (0x00000013) nop
+core   0: 0x80000234 (0x00000013) nop
+core   0: 0x80000238 (0x00000013) nop
+core   0: 0x8000023c (0x00000013) nop
+core   0: 0x80000240 (0x00002197) auipc   gp, 0x2
+core   0: 0x80000244 (0xdc018193) addi    gp, gp, -576
+core   0: 0x80000248 (0x00000013) nop
+core   0: 0x8000024c (0x00000013) nop
+core   0: 0x80000250 (0x00000013) nop
+core   0: 0x80000254 (0x00000013) nop
+core   0: 0x80000258 (0x00000013) nop
+core   0: 0x8000025c (0x00000013) nop
+core   0: 0x80000260 (0x3401892f) lb.aq   s2, (gp)
+core   0: 0x80000264 (0x00000001) c.nop
+core   0: 0x80000266 (0x00000001) c.nop
+core   0: 0x80000268 (0x012a2623) sw      s2, 12(s4)
+core   0: 0x8000026c (0x00000013) nop
+core   0: 0x80000270 (0x00000013) nop
+core   0: 0x80000274 (0x00000013) nop
+core   0: 0x80000278 (0x00000013) nop
+core   0: 0x8000027c (0x00000013) nop
+core   0: 0x80000280 (0x00002417) auipc   s0, 0x2
+core   0: 0x80000284 (0xd8040413) addi    s0, s0, -640
+core   0: 0x80000288 (0x00000013) nop
+core   0: 0x8000028c (0x00000013) nop
+core   0: 0x80000290 (0x00000013) nop
+core   0: 0x80000294 (0x00000013) nop
+core   0: 0x80000298 (0x00000013) nop
+core   0: 0x8000029c (0x00000013) nop
+core   0: 0x800002a0 (0x34040baf) lb.aq   s7, (s0)
+core   0: 0x800002a4 (0x00000001) c.nop
+core   0: 0x800002a6 (0x00000001) c.nop
+core   0: 0x800002a8 (0x017a2823) sw      s7, 16(s4)
+core   0: 0x800002ac (0x00000013) nop
+core   0: 0x800002b0 (0x00000013) nop
+core   0: 0x800002b4 (0x00000013) nop
+core   0: 0x800002b8 (0x00000013) nop
+core   0: 0x800002bc (0x00000013) nop
+core   0: 0x800002c0 (0x00002097) auipc   ra, 0x2
+core   0: 0x800002c4 (0xd4008093) addi    ra, ra, -704
+core   0: 0x800002c8 (0x00000013) nop
+core   0: 0x800002cc (0x00000013) nop
+core   0: 0x800002d0 (0x00000013) nop
+core   0: 0x800002d4 (0x00000013) nop
+core   0: 0x800002d8 (0x00000013) nop
+core   0: 0x800002dc (0x00000013) nop
+core   0: 0x800002e0 (0x34008f2f) lb.aq   t5, (ra)
+core   0: 0x800002e4 (0x00000001) c.nop
+core   0: 0x800002e6 (0x00000001) c.nop
+core   0: 0x800002e8 (0x01ea2a23) sw      t5, 20(s4)
+core   0: 0x800002ec (0x00000013) nop
+core   0: 0x800002f0 (0x00000013) nop
+core   0: 0x800002f4 (0x00000013) nop
+core   0: 0x800002f8 (0x00000013) nop
+core   0: 0x800002fc (0x00000013) nop
+core   0: 0x80000300 (0x00002617) auipc   a2, 0x2
+core   0: 0x80000304 (0xd0060613) addi    a2, a2, -768
+core   0: 0x80000308 (0x00000013) nop
+core   0: 0x8000030c (0x00000013) nop
+core   0: 0x80000310 (0x00000013) nop
+core   0: 0x80000314 (0x00000013) nop
+core   0: 0x80000318 (0x00000013) nop
+core   0: 0x8000031c (0x00000013) nop
+core   0: 0x80000320 (0x340608af) lb.aq   a7, (a2)
+core   0: 0x80000324 (0x00000001) c.nop
+core   0: 0x80000326 (0x00000001) c.nop
+core   0: 0x80000328 (0x011a2c23) sw      a7, 24(s4)
+core   0: 0x8000032c (0x00000013) nop
+core   0: 0x80000330 (0x00000013) nop
+core   0: 0x80000334 (0x00000013) nop
+core   0: 0x80000338 (0x00000013) nop
+core   0: 0x8000033c (0x00000013) nop
+core   0: 0x80000340 (0x00002517) auipc   a0, 0x2
+core   0: 0x80000344 (0xcc050513) addi    a0, a0, -832
+core   0: 0x80000348 (0x00000013) nop
+core   0: 0x8000034c (0x00000013) nop
+core   0: 0x80000350 (0x00000013) nop
+core   0: 0x80000354 (0x00000013) nop
+core   0: 0x80000358 (0x00000013) nop
+core   0: 0x8000035c (0x00000013) nop
+core   0: 0x80000360 (0x3405072f) lb.aq   a4, (a0)
+core   0: 0x80000364 (0x00000001) c.nop
+core   0: 0x80000366 (0x00000001) c.nop
+core   0: 0x80000368 (0x00ea2e23) sw      a4, 28(s4)
+core   0: 0x8000036c (0x00000013) nop
+core   0: 0x80000370 (0x00000013) nop
+core   0: 0x80000374 (0x00000013) nop
+core   0: 0x80000378 (0x00000013) nop
+core   0: 0x8000037c (0x00000013) nop
+core   0: 0x80000380 (0x00002d97) auipc   s11, 0x2
+core   0: 0x80000384 (0xc80d8d93) addi    s11, s11, -896
+core   0: 0x80000388 (0x00000013) nop
+core   0: 0x8000038c (0x00000013) nop
+core   0: 0x80000390 (0x00000013) nop
+core   0: 0x80000394 (0x00000013) nop
+core   0: 0x80000398 (0x00000013) nop
+core   0: 0x8000039c (0x00000013) nop
+core   0: 0x800003a0 (0x340d852f) lb.aq   a0, (s11)
+core   0: 0x800003a4 (0x00000001) c.nop
+core   0: 0x800003a6 (0x00000001) c.nop
+core   0: 0x800003a8 (0x02aa2023) sw      a0, 32(s4)
+core   0: 0x800003ac (0x00000013) nop
+core   0: 0x800003b0 (0x00000013) nop
+core   0: 0x800003b4 (0x00000013) nop
+core   0: 0x800003b8 (0x00000013) nop
+core   0: 0x800003bc (0x00000013) nop
+core   0: 0x800003c0 (0x00002917) auipc   s2, 0x2
+core   0: 0x800003c4 (0xc4090913) addi    s2, s2, -960
+core   0: 0x800003c8 (0x00000013) nop
+core   0: 0x800003cc (0x00000013) nop
+core   0: 0x800003d0 (0x00000013) nop
+core   0: 0x800003d4 (0x00000013) nop
+core   0: 0x800003d8 (0x00000013) nop
+core   0: 0x800003dc (0x00000013) nop
+core   0: 0x800003e0 (0x340907af) lb.aq   a5, (s2)
+core   0: 0x800003e4 (0x00000001) c.nop
+core   0: 0x800003e6 (0x00000001) c.nop
+core   0: 0x800003e8 (0x02fa2223) sw      a5, 36(s4)
+core   0: 0x800003ec (0x00000013) nop
+core   0: 0x800003f0 (0x00000013) nop
+core   0: 0x800003f4 (0x00000013) nop
+core   0: 0x800003f8 (0x00000013) nop
+core   0: 0x800003fc (0x00000013) nop
+core   0: 0x80000400 (0x00002d17) auipc   s10, 0x2
+core   0: 0x80000404 (0xc00d0d13) addi    s10, s10, -1024
+core   0: 0x80000408 (0x00000013) nop
+core   0: 0x8000040c (0x00000013) nop
+core   0: 0x80000410 (0x00000013) nop
+core   0: 0x80000414 (0x00000013) nop
+core   0: 0x80000418 (0x00000013) nop
+core   0: 0x8000041c (0x00000013) nop
+core   0: 0x80000420 (0x340d04af) lb.aq   s1, (s10)
+core   0: 0x80000424 (0x00000001) c.nop
+core   0: 0x80000426 (0x00000001) c.nop
+core   0: 0x80000428 (0x029a2423) sw      s1, 40(s4)
+core   0: 0x8000042c (0x00000013) nop
+core   0: 0x80000430 (0x00000013) nop
+core   0: 0x80000434 (0x00000013) nop
+core   0: 0x80000438 (0x00000013) nop
+core   0: 0x8000043c (0x00000013) nop
+core   0: 0x80000440 (0x00002797) auipc   a5, 0x2
+core   0: 0x80000444 (0xbc078793) addi    a5, a5, -1088
+core   0: 0x80000448 (0x00000013) nop
+core   0: 0x8000044c (0x00000013) nop
+core   0: 0x80000450 (0x00000013) nop
+core   0: 0x80000454 (0x00000013) nop
+core   0: 0x80000458 (0x00000013) nop
+core   0: 0x8000045c (0x00000013) nop
+core   0: 0x80000460 (0x3407882f) lb.aq   a6, (a5)
+core   0: 0x80000464 (0x00000001) c.nop
+core   0: 0x80000466 (0x00000001) c.nop
+core   0: 0x80000468 (0x030a2623) sw      a6, 44(s4)
+core   0: 0x8000046c (0x00000013) nop
+core   0: 0x80000470 (0x00000013) nop
+core   0: 0x80000474 (0x00000013) nop
+core   0: 0x80000478 (0x00000013) nop
+core   0: 0x8000047c (0x00000013) nop
+core   0: 0x80000480 (0x00002717) auipc   a4, 0x2
+core   0: 0x80000484 (0xb8070713) addi    a4, a4, -1152
+core   0: 0x80000488 (0x00000013) nop
+core   0: 0x8000048c (0x00000013) nop
+core   0: 0x80000490 (0x00000013) nop
+core   0: 0x80000494 (0x00000013) nop
+core   0: 0x80000498 (0x00000013) nop
+core   0: 0x8000049c (0x00000013) nop
+core   0: 0x800004a0 (0x3407062f) lb.aq   a2, (a4)
+core   0: 0x800004a4 (0x00000001) c.nop
+core   0: 0x800004a6 (0x00000001) c.nop
+core   0: 0x800004a8 (0x02ca2823) sw      a2, 48(s4)
+core   0: 0x800004ac (0x00000013) nop
+core   0: 0x800004b0 (0x00000013) nop
+core   0: 0x800004b4 (0x00000013) nop
+core   0: 0x800004b8 (0x00000013) nop
+core   0: 0x800004bc (0x00000013) nop
+core   0: 0x800004c0 (0x00002997) auipc   s3, 0x2
+core   0: 0x800004c4 (0xb4098993) addi    s3, s3, -1216
+core   0: 0x800004c8 (0x00000013) nop
+core   0: 0x800004cc (0x00000013) nop
+core   0: 0x800004d0 (0x00000013) nop
+core   0: 0x800004d4 (0x00000013) nop
+core   0: 0x800004d8 (0x00000013) nop
+core   0: 0x800004dc (0x00000013) nop
+core   0: 0x800004e0 (0x34098c2f) lb.aq   s8, (s3)
+core   0: 0x800004e4 (0x00000001) c.nop
+core   0: 0x800004e6 (0x00000001) c.nop
+core   0: 0x800004e8 (0x038a2a23) sw      s8, 52(s4)
+core   0: 0x800004ec (0x00000013) nop
+core   0: 0x800004f0 (0x00000013) nop
+core   0: 0x800004f4 (0x00000013) nop
+core   0: 0x800004f8 (0x00000013) nop
+core   0: 0x800004fc (0x00000013) nop
+core   0: 0x80000500 (0x00002b97) auipc   s7, 0x2
+core   0: 0x80000504 (0xb00b8b93) addi    s7, s7, -1280
+core   0: 0x80000508 (0x00000013) nop
+core   0: 0x8000050c (0x00000013) nop
+core   0: 0x80000510 (0x00000013) nop
+core   0: 0x80000514 (0x00000013) nop
+core   0: 0x80000518 (0x00000013) nop
+core   0: 0x8000051c (0x00000013) nop
+core   0: 0x80000520 (0x340b8aaf) lb.aq   s5, (s7)
+core   0: 0x80000524 (0x00000001) c.nop
+core   0: 0x80000526 (0x00000001) c.nop
+core   0: 0x80000528 (0x035a2c23) sw      s5, 56(s4)
+core   0: 0x8000052c (0x00000013) nop
+core   0: 0x80000530 (0x00000013) nop
+core   0: 0x80000534 (0x00000013) nop
+core   0: 0x80000538 (0x00000013) nop
+core   0: 0x8000053c (0x00000013) nop
+core   0: 0x80000540 (0x00002397) auipc   t2, 0x2
+core   0: 0x80000544 (0xac038393) addi    t2, t2, -1344
+core   0: 0x80000548 (0x00000013) nop
+core   0: 0x8000054c (0x00000013) nop
+core   0: 0x80000550 (0x00000013) nop
+core   0: 0x80000554 (0x00000013) nop
+core   0: 0x80000558 (0x00000013) nop
+core   0: 0x8000055c (0x00000013) nop
+core   0: 0x80000560 (0x34038e2f) lb.aq   t3, (t2)
+core   0: 0x80000564 (0x00000001) c.nop
+core   0: 0x80000566 (0x00000001) c.nop
+core   0: 0x80000568 (0x03ca2e23) sw      t3, 60(s4)
+core   0: 0x8000056c (0x00000013) nop
+core   0: 0x80000570 (0x00000013) nop
+core   0: 0x80000574 (0x00000013) nop
+core   0: 0x80000578 (0x00000013) nop
+core   0: 0x8000057c (0x00000013) nop
+core   0: 0x80000580 (0x00002497) auipc   s1, 0x2
+core   0: 0x80000584 (0xa8048493) addi    s1, s1, -1408
+core   0: 0x80000588 (0x00000013) nop
+core   0: 0x8000058c (0x00000013) nop
+core   0: 0x80000590 (0x00000013) nop
+core   0: 0x80000594 (0x00000013) nop
+core   0: 0x80000598 (0x00000013) nop
+core   0: 0x8000059c (0x00000013) nop
+core   0: 0x800005a0 (0x340486af) lb.aq   a3, (s1)
+core   0: 0x800005a4 (0x00000001) c.nop
+core   0: 0x800005a6 (0x00000001) c.nop
+core   0: 0x800005a8 (0x04da2023) sw      a3, 64(s4)
+core   0: 0x800005ac (0x00000013) nop
+core   0: 0x800005b0 (0x00000013) nop
+core   0: 0x800005b4 (0x00000013) nop
+core   0: 0x800005b8 (0x00000013) nop
+core   0: 0x800005bc (0x00000013) nop
+core   0: 0x800005c0 (0x00002c97) auipc   s9, 0x2
+core   0: 0x800005c4 (0xa40c8c93) addi    s9, s9, -1472
+core   0: 0x800005c8 (0x00000013) nop
+core   0: 0x800005cc (0x00000013) nop
+core   0: 0x800005d0 (0x00000013) nop
+core   0: 0x800005d4 (0x00000013) nop
+core   0: 0x800005d8 (0x00000013) nop
+core   0: 0x800005dc (0x00000013) nop
+core   0: 0x800005e0 (0x340c812f) lb.aq   sp, (s9)
+core   0: 0x800005e4 (0x00000001) c.nop
+core   0: 0x800005e6 (0x00000001) c.nop
+core   0: 0x800005e8 (0x042a2223) sw      sp, 68(s4)
+core   0: 0x800005ec (0x00000013) nop
+core   0: 0x800005f0 (0x00000013) nop
+core   0: 0x800005f4 (0x00000013) nop
+core   0: 0x800005f8 (0x00000013) nop
+core   0: 0x800005fc (0x00000013) nop
+core   0: 0x80000600 (0x00002f17) auipc   t5, 0x2
+core   0: 0x80000604 (0xa00f0f13) addi    t5, t5, -1536
+core   0: 0x80000608 (0x00000013) nop
+core   0: 0x8000060c (0x00000013) nop
+core   0: 0x80000610 (0x00000013) nop
+core   0: 0x80000614 (0x00000013) nop
+core   0: 0x80000618 (0x00000013) nop
+core   0: 0x8000061c (0x00000013) nop
+core   0: 0x80000620 (0x340f09af) lb.aq   s3, (t5)
+core   0: 0x80000624 (0x00000001) c.nop
+core   0: 0x80000626 (0x00000001) c.nop
+core   0: 0x80000628 (0x053a2423) sw      s3, 72(s4)
+core   0: 0x8000062c (0x00000013) nop
+core   0: 0x80000630 (0x00000013) nop
+core   0: 0x80000634 (0x00000013) nop
+core   0: 0x80000638 (0x00000013) nop
+core   0: 0x8000063c (0x00000013) nop
+core   0: 0x80000640 (0x00002297) auipc   t0, 0x2
+core   0: 0x80000644 (0x9c028293) addi    t0, t0, -1600
+core   0: 0x80000648 (0x00000013) nop
+core   0: 0x8000064c (0x00000013) nop
+core   0: 0x80000650 (0x00000013) nop
+core   0: 0x80000654 (0x00000013) nop
+core   0: 0x80000658 (0x00000013) nop
+core   0: 0x8000065c (0x00000013) nop
+core   0: 0x80000660 (0x340283af) lb.aq   t2, (t0)
+core   0: 0x80000664 (0x00000001) c.nop
+core   0: 0x80000666 (0x00000001) c.nop
+core   0: 0x80000668 (0x047a2623) sw      t2, 76(s4)
+core   0: 0x8000066c (0x00000013) nop
+core   0: 0x80000670 (0x00000013) nop
+core   0: 0x80000674 (0x00000013) nop
+core   0: 0x80000678 (0x00000013) nop
+core   0: 0x8000067c (0x00000013) nop
+core   0: 0x80000680 (0x00003217) auipc   tp, 0x3
+core   0: 0x80000684 (0xad820213) addi    tp, tp, -1320
+core   0: 0x80000688 (0x00000013) nop
+core   0: 0x8000068c (0x00000013) nop
+core   0: 0x80000690 (0x00000013) nop
+core   0: 0x80000694 (0x00000013) nop
+core   0: 0x80000698 (0x00000013) nop
+core   0: 0x8000069c (0x00000013) nop
+core   0: 0x800006a0 (0x00002817) auipc   a6, 0x2
+core   0: 0x800006a4 (0x96080813) addi    a6, a6, -1696
+core   0: 0x800006a8 (0x00000013) nop
+core   0: 0x800006ac (0x00000013) nop
+core   0: 0x800006b0 (0x00000013) nop
+core   0: 0x800006b4 (0x00000013) nop
+core   0: 0x800006b8 (0x00000013) nop
+core   0: 0x800006bc (0x00000013) nop
+core   0: 0x800006c0 (0x3408042f) lb.aq   s0, (a6)
+core   0: 0x800006c4 (0x00000001) c.nop
+core   0: 0x800006c6 (0x00000001) c.nop
+core   0: 0x800006c8 (0x00822023) sw      s0, 0(tp)
+core   0: 0x800006cc (0x00000013) nop
+core   0: 0x800006d0 (0x00000013) nop
+core   0: 0x800006d4 (0x00000013) nop
+core   0: 0x800006d8 (0x00000013) nop
+core   0: 0x800006dc (0x00000013) nop
+core   0: 0x800006e0 (0x00002897) auipc   a7, 0x2
+core   0: 0x800006e4 (0x92088893) addi    a7, a7, -1760
+core   0: 0x800006e8 (0x00000013) nop
+core   0: 0x800006ec (0x00000013) nop
+core   0: 0x800006f0 (0x00000013) nop
+core   0: 0x800006f4 (0x00000013) nop
+core   0: 0x800006f8 (0x00000013) nop
+core   0: 0x800006fc (0x00000013) nop
+core   0: 0x80000700 (0x340880af) lb.aq   ra, (a7)
+core   0: 0x80000704 (0x00000001) c.nop
+core   0: 0x80000706 (0x00000001) c.nop
+core   0: 0x80000708 (0x00122223) sw      ra, 4(tp)
+core   0: 0x8000070c (0x00000013) nop
+core   0: 0x80000710 (0x00000013) nop
+core   0: 0x80000714 (0x00000013) nop
+core   0: 0x80000718 (0x00000013) nop
+core   0: 0x8000071c (0x00000013) nop
+core   0: 0x80000720 (0x00002a17) auipc   s4, 0x2
+core   0: 0x80000724 (0x8e0a0a13) addi    s4, s4, -1824
+core   0: 0x80000728 (0x00000013) nop
+core   0: 0x8000072c (0x00000013) nop
+core   0: 0x80000730 (0x00000013) nop
+core   0: 0x80000734 (0x00000013) nop
+core   0: 0x80000738 (0x00000013) nop
+core   0: 0x8000073c (0x00000013) nop
+core   0: 0x80000740 (0x340a0daf) lb.aq   s11, (s4)
+core   0: 0x80000744 (0x00000001) c.nop
+core   0: 0x80000746 (0x00000001) c.nop
+core   0: 0x80000748 (0x01b22423) sw      s11, 8(tp)
+core   0: 0x8000074c (0x00000013) nop
+core   0: 0x80000750 (0x00000013) nop
+core   0: 0x80000754 (0x00000013) nop
+core   0: 0x80000758 (0x00000013) nop
+core   0: 0x8000075c (0x00000013) nop
+core   0: 0x80000760 (0x00002e97) auipc   t4, 0x2
+core   0: 0x80000764 (0x8a0e8e93) addi    t4, t4, -1888
+core   0: 0x80000768 (0x00000013) nop
+core   0: 0x8000076c (0x00000013) nop
+core   0: 0x80000770 (0x00000013) nop
+core   0: 0x80000774 (0x00000013) nop
+core   0: 0x80000778 (0x00000013) nop
+core   0: 0x8000077c (0x00000013) nop
+core   0: 0x80000780 (0x340e82af) lb.aq   t0, (t4)
+core   0: 0x80000784 (0x00000001) c.nop
+core   0: 0x80000786 (0x00000001) c.nop
+core   0: 0x80000788 (0x00522623) sw      t0, 12(tp)
+core   0: 0x8000078c (0x00000013) nop
+core   0: 0x80000790 (0x00000013) nop
+core   0: 0x80000794 (0x00000013) nop
+core   0: 0x80000798 (0x00000013) nop
+core   0: 0x8000079c (0x00000013) nop
+core   0: 0x800007a0 (0x00002597) auipc   a1, 0x2
+core   0: 0x800007a4 (0x86058593) addi    a1, a1, -1952
+core   0: 0x800007a8 (0x00000013) nop
+core   0: 0x800007ac (0x00000013) nop
+core   0: 0x800007b0 (0x00000013) nop
+core   0: 0x800007b4 (0x00000013) nop
+core   0: 0x800007b8 (0x00000013) nop
+core   0: 0x800007bc (0x00000013) nop
+core   0: 0x800007c0 (0x34058b2f) lb.aq   s6, (a1)
+core   0: 0x800007c4 (0x00000001) c.nop
+core   0: 0x800007c6 (0x00000001) c.nop
+core   0: 0x800007c8 (0x01622823) sw      s6, 16(tp)
+core   0: 0x800007cc (0x00000013) nop
+core   0: 0x800007d0 (0x00000013) nop
+core   0: 0x800007d4 (0x00000013) nop
+core   0: 0x800007d8 (0x00000013) nop
+core   0: 0x800007dc (0x00000013) nop
+core   0: 0x800007e0 (0x00002117) auipc   sp, 0x2
+core   0: 0x800007e4 (0x82010113) addi    sp, sp, -2016
+core   0: 0x800007e8 (0x00000013) nop
+core   0: 0x800007ec (0x00000013) nop
+core   0: 0x800007f0 (0x00000013) nop
+core   0: 0x800007f4 (0x00000013) nop
+core   0: 0x800007f8 (0x00000013) nop
+core   0: 0x800007fc (0x00000013) nop
+core   0: 0x80000800 (0x34010faf) lb.aq   t6, (sp)
+core   0: 0x80000804 (0x00000001) c.nop
+core   0: 0x80000806 (0x00000001) c.nop
+core   0: 0x80000808 (0x01f22a23) sw      t6, 20(tp)
+core   0: 0x8000080c (0x00000013) nop
+core   0: 0x80000810 (0x00000013) nop
+core   0: 0x80000814 (0x00000013) nop
+core   0: 0x80000818 (0x00000013) nop
+core   0: 0x8000081c (0x00000013) nop
+core   0: 0x80000820 (0x00001e17) auipc   t3, 0x1
+core   0: 0x80000824 (0x7e0e0e13) addi    t3, t3, 2016
+core   0: 0x80000828 (0x00000013) nop
+core   0: 0x8000082c (0x00000013) nop
+core   0: 0x80000830 (0x00000013) nop
+core   0: 0x80000834 (0x00000013) nop
+core   0: 0x80000838 (0x00000013) nop
+core   0: 0x8000083c (0x00000013) nop
+core   0: 0x80000840 (0x340e01af) lb.aq   gp, (t3)
+core   0: 0x80000844 (0x00000001) c.nop
+core   0: 0x80000846 (0x00000001) c.nop
+core   0: 0x80000848 (0x00322c23) sw      gp, 24(tp)
+core   0: 0x8000084c (0x00000013) nop
+core   0: 0x80000850 (0x00000013) nop
+core   0: 0x80000854 (0x00000013) nop
+core   0: 0x80000858 (0x00000013) nop
+core   0: 0x8000085c (0x00000013) nop
+core   0: 0x80000860 (0x00001317) auipc   t1, 0x1
+core   0: 0x80000864 (0x7a030313) addi    t1, t1, 1952
+core   0: 0x80000868 (0x00000013) nop
+core   0: 0x8000086c (0x00000013) nop
+core   0: 0x80000870 (0x00000013) nop
+core   0: 0x80000874 (0x00000013) nop
+core   0: 0x80000878 (0x00000013) nop
+core   0: 0x8000087c (0x00000013) nop
+core   0: 0x80000880 (0x34030a2f) lb.aq   s4, (t1)
+core   0: 0x80000884 (0x00000001) c.nop
+core   0: 0x80000886 (0x00000001) c.nop
+core   0: 0x80000888 (0x01422e23) sw      s4, 28(tp)
+core   0: 0x8000088c (0x00000013) nop
+core   0: 0x80000890 (0x00000013) nop
+core   0: 0x80000894 (0x00000013) nop
+core   0: 0x80000898 (0x00000013) nop
+core   0: 0x8000089c (0x00000013) nop
+core   0: 0x800008a0 (0x00001a97) auipc   s5, 0x1
+core   0: 0x800008a4 (0x760a8a93) addi    s5, s5, 1888
+core   0: 0x800008a8 (0x00000013) nop
+core   0: 0x800008ac (0x00000013) nop
+core   0: 0x800008b0 (0x00000013) nop
+core   0: 0x800008b4 (0x00000013) nop
+core   0: 0x800008b8 (0x00000013) nop
+core   0: 0x800008bc (0x00000013) nop
+core   0: 0x800008c0 (0x340a8caf) lb.aq   s9, (s5)
+core   0: 0x800008c4 (0x00000001) c.nop
+core   0: 0x800008c6 (0x00000001) c.nop
+core   0: 0x800008c8 (0x03922023) sw      s9, 32(tp)
+core   0: 0x800008cc (0x00000013) nop
+core   0: 0x800008d0 (0x00000013) nop
+core   0: 0x800008d4 (0x00000013) nop
+core   0: 0x800008d8 (0x00000013) nop
+core   0: 0x800008dc (0x00000013) nop
+core   0: 0x800008e0 (0x00001f97) auipc   t6, 0x1
+core   0: 0x800008e4 (0x720f8f93) addi    t6, t6, 1824
+core   0: 0x800008e8 (0x00000013) nop
+core   0: 0x800008ec (0x00000013) nop
+core   0: 0x800008f0 (0x00000013) nop
+core   0: 0x800008f4 (0x00000013) nop
+core   0: 0x800008f8 (0x00000013) nop
+core   0: 0x800008fc (0x00000013) nop
+core   0: 0x80000900 (0x340f8eaf) lb.aq   t4, (t6)
+core   0: 0x80000904 (0x00000001) c.nop
+core   0: 0x80000906 (0x00000001) c.nop
+core   0: 0x80000908 (0x03d22223) sw      t4, 36(tp)
+core   0: 0x8000090c (0x00000013) nop
+core   0: 0x80000910 (0x00000013) nop
+core   0: 0x80000914 (0x00000013) nop
+core   0: 0x80000918 (0x00000013) nop
+core   0: 0x8000091c (0x00000013) nop
+core   0: 0x80000920 (0x00001b17) auipc   s6, 0x1
+core   0: 0x80000924 (0x6e0b0b13) addi    s6, s6, 1760
+core   0: 0x80000928 (0x00000013) nop
+core   0: 0x8000092c (0x00000013) nop
+core   0: 0x80000930 (0x00000013) nop
+core   0: 0x80000934 (0x00000013) nop
+core   0: 0x80000938 (0x00000013) nop
+core   0: 0x8000093c (0x00000013) nop
+core   0: 0x80000940 (0x340b0d2f) lb.aq   s10, (s6)
+core   0: 0x80000944 (0x00000001) c.nop
+core   0: 0x80000946 (0x00000001) c.nop
+core   0: 0x80000948 (0x03a22423) sw      s10, 40(tp)
+core   0: 0x8000094c (0x00000013) nop
+core   0: 0x80000950 (0x00000013) nop
+core   0: 0x80000954 (0x00000013) nop
+core   0: 0x80000958 (0x00000013) nop
+core   0: 0x8000095c (0x00000013) nop
+core   0: 0x80000960 (0x00001a17) auipc   s4, 0x1
+core   0: 0x80000964 (0x6a0a0a13) addi    s4, s4, 1696
+core   0: 0x80000968 (0x00000013) nop
+core   0: 0x8000096c (0x00000013) nop
+core   0: 0x80000970 (0x00000013) nop
+core   0: 0x80000974 (0x00000013) nop
+core   0: 0x80000978 (0x00000013) nop
+core   0: 0x8000097c (0x00000013) nop
+core   0: 0x80000980 (0x340a002f) lb.aq   zero, (s4)
+core   0: 0x80000984 (0x00000001) c.nop
+core   0: 0x80000986 (0x00000001) c.nop
+core   0: 0x80000988 (0x02022623) sw      zero, 44(tp)
+core   0: 0x8000098c (0x0200006f) j       pc + 0x20
+core   0: 0x800009ac (0x00004085) c.li    ra, 1
+core   0: 0x800009ae (0x00000397) auipc   t2, 0x0
+core   0: 0x800009b2 (0x6413a923) sw      ra, 1618(t2)
+core   0: 0x800009b6 (0x0000bfe5) c.j     pc - 8
+core   0: 0x800009ae (0x00000397) auipc   t2, 0x0
+core   0: 0x800009b2 (0x6413a923) sw      ra, 1618(t2)
+core   0: 0x800009b6 (0x0000bfe5) c.j     pc - 8
+core   0: 0x800009ae (0x00000397) auipc   t2, 0x0
+core   0: 0x800009b2 (0x6413a923) sw      ra, 1618(t2)
+core   0: 0x800009b6 (0x0000bfe5) c.j     pc - 8
+core   0: 0x800009ae (0x00000397) auipc   t2, 0x0
+core   0: 0x800009b2 (0x6413a923) sw      ra, 1618(t2)
+core   0: 0x800009b6 (0x0000bfe5) c.j     pc - 8
+core   0: 0x800009ae (0x00000397) auipc   t2, 0x0
+core   0: 0x800009b2 (0x6413a923) sw      ra, 1618(t2)
+core   0: 0x800009b6 (0x0000bfe5) c.j     pc - 8
+core   0: 0x800009ae (0x00000397) auipc   t2, 0x0
+core   0: 0x800009b2 (0x6413a923) sw      ra, 1618(t2)
+core   0: 0x800009b6 (0x0000bfe5) c.j     pc - 8
+core   0: 0x800009ae (0x00000397) auipc   t2, 0x0
+core   0: 0x800009b2 (0x6413a923) sw      ra, 1618(t2)
+core   0: 0x800009b6 (0x0000bfe5) c.j     pc - 8
+core   0: 0x800009ae (0x00000397) auipc   t2, 0x0
+core   0: 0x800009b2 (0x6413a923) sw      ra, 1618(t2)
+core   0: 0x800009b6 (0x0000bfe5) c.j     pc - 8
+core   0: 0x800009ae (0x00000397) auipc   t2, 0x0
+core   0: 0x800009b2 (0x6413a923) sw      ra, 1618(t2)
+core   0: 0x800009b6 (0x0000bfe5) c.j     pc - 8
+core   0: 0x800009ae (0x00000397) auipc   t2, 0x0
+core   0: 0x800009b2 (0x6413a923) sw      ra, 1618(t2)
+core   0: 0x800009b6 (0x0000bfe5) c.j     pc - 8
+core   0: 0x800009ae (0x00000397) auipc   t2, 0x0
+core   0: 0x800009b2 (0x6413a923) sw      ra, 1618(t2)
+core   0: 0x800009b6 (0x0000bfe5) c.j     pc - 8
+core   0: 0x800009ae (0x00000397) auipc   t2, 0x0
+core   0: 0x800009b2 (0x6413a923) sw      ra, 1618(t2)
+core   0: 0x800009b6 (0x0000bfe5) c.j     pc - 8
+core   0: 0x800009ae (0x00000397) auipc   t2, 0x0
+core   0: 0x800009b2 (0x6413a923) sw      ra, 1618(t2)
+core   0: 0x800009b6 (0x0000bfe5) c.j     pc - 8
+core   0: 0x800009ae (0x00000397) auipc   t2, 0x0
+core   0: 0x800009b2 (0x6413a923) sw      ra, 1618(t2)
+core   0: 0x800009b6 (0x0000bfe5) c.j     pc - 8
+core   0: 0x800009ae (0x00000397) auipc   t2, 0x0
+core   0: 0x800009b2 (0x6413a923) sw      ra, 1618(t2)
+core   0: 0x800009b6 (0x0000bfe5) c.j     pc - 8
+core   0: 0x800009ae (0x00000397) auipc   t2, 0x0
+core   0: 0x800009b2 (0x6413a923) sw      ra, 1618(t2)
+core   0: 0x800009b6 (0x0000bfe5) c.j     pc - 8
+core   0: 0x800009ae (0x00000397) auipc   t2, 0x0
+core   0: 0x800009b2 (0x6413a923) sw      ra, 1618(t2)
